@@ -1,8 +1,9 @@
 import {createBrowserRouter} from 'react-router-dom';
-import HomePage from './page/PageHome/HomePage';
-import PopularPage from './page/PagePopular/PopularPage';
-import BattlePage from './page/PageBattle/BattlePage';
-import Nav from './page/Nav';
+import HomePage from './page/Home/HomePage';
+import PopularPage from './page/Popular/PopularPage';
+import BattlePage from './page/Battle/BattlePage';
+import Nav from './components/Nav';
+import Results from './page/Battle/Results';
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: '/battle',
                 element: <BattlePage/>
+            },
+            {
+                path: 'battle/results',
+                element: <Results/>
             },
         ]
     }

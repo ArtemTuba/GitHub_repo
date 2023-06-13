@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import fetchPopularRepos from "../../api";
+import fetchPopularRepos from "../../api/requests";
 import loader from '../../img/loader.svg';
 import Tabs from "./Tabs";
 
@@ -30,7 +30,7 @@ const PopularPage = () => {
     }, [selectedLanguage]);
 
     return(
-        <div>
+        <>
             <Tabs selectedLanguage={selectedLanguage} setselectedLanguage={setselectedLanguage} />
             <ul className="popular-list">
                 {repos.map((repo, i) => 
@@ -41,7 +41,7 @@ const PopularPage = () => {
                                 <img src={repo.owner.avatar_url} alt="Avatar" className="avatar"/>
                             </li>
                             <li>
-                               <a href={repo.html_url} target="_blank">{repo.name}</a> 
+                               <a href={repo.html_url} target="blank">{repo.name}</a> 
                             </li>
                             <li>@{repo.owner.login}</li>
                             <li>{repo.stargazers_count} stars</li>
@@ -51,9 +51,9 @@ const PopularPage = () => {
             </ul>
             {loading ? 
             <div className="loader">
-                <img src={loader}  className="loader-img"/>
+                <img src={loader}  className="loader-img" alt="loader"/>
             </div> : null}
-        </div>
+        </>
     )
 }
 
